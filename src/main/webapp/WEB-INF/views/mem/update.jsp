@@ -32,7 +32,8 @@
 <br/>
 <br/>
 
-<button id="mem_update_button" on>회원수정</button> <br/>
+<button id="mem_update_button" on>회원수정</button>
+<button id="mem_delete_button" on>삭제</button> <br/>
 
 
 
@@ -59,16 +60,56 @@
 			url:'/mem/api/update',
 			data:JSON.stringify(mem_data),
 			contentType:'application/json; charset=utf-8',
-			dataType:'json'// 역직렬화 때 json으로 바꿈
+			dataType:'text'// 역직렬화 때 json으로 바꿈
 				//ResponseEntity<String>가 오브젝트 따라서 jakson이 json으로	
 			}).done(function(result){
-				console.log(result)
-				console.log(result.statusCode)
+				if(result === "ok"){
 				alert("회원정보가 수정되었습니다.");
 				location.href="/mem";
+				}else if(result === "fail"){
+					alert("회원정보이 수정실패하였습니다.")
+				}				
 			}).fail(function(result){
-				console.log(result)
-				alert("회원정보 수정 실패")				
+				console.log("실패");
+				console.log(result);
+				alert('서버오류');
+									
+		    });
+
+
+		
+	})
+	
+	
+	$('#mem_delete_button').on('click',function(){
+	
+		let id = $('#id').val();
+		
+		let mem_data = {
+			id : id				
+		}
+
+
+//		$.ajax().sessice().fail() 두방법 다 허용함
+		$.ajax({
+			type:'DELETE',
+			url:'/mem/api/delete',
+			data:JSON.stringify(mem_data),
+			contentType:'application/json; charset=utf-8',
+			dataType:'text'// 역직렬화 때 json으로 바꿈
+				//ResponseEntity<String>가 오브젝트 따라서 jakson이 json으로	
+			}).done(function(result){
+				if(result === "ok"){
+				alert("회원삭제가 완료되었습니다.");
+				location.href="/mem";
+				}else if(result === "fail"){
+					alert("회원삭제가 실패하였습니다.")
+				}				
+			}).fail(function(result){
+				console.log("실패");
+				console.log(result);
+				alert('서버오류');
+									
 		    });
 
 
