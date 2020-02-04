@@ -38,12 +38,12 @@
 
 	    $.ajax({
 		    type:'POST',
-			url:'/mem/api/insert',
+			url:'/mem/api/join',
 		    data:JSON.stringify(mem_data),
 		    contentType:'application/json; charset=utf-8',
-		    dataType:'text'		    
+		    dataType:'json'		    
 		}).done(function(result){
-			if(result === "ok"){
+			if(result.msg === "ok"){
 				alert("회원가입이 완료되었습니다.");
 				location.href="/mem";
 			}else if(result === "fail"){

@@ -13,6 +13,7 @@
 
 <a href="/home/hello?id=ssar">hello 페이지 이동-href</a> <br/>
 
+
 <!-- delect 방식 호출 -->
 <button id="hello-button">hello 페이지 이동-delect</button> <br/> 
 
@@ -30,6 +31,10 @@
 </form>
 <button id="hello-put-button">hello 페이지 이동-put</button> <br/>
 
+
+
+<a href="/mem">회원정보게시판 이동</a> <br/>
+<a href="/mem/join">회원가입게시판 이동</a> <br/>
 
 
 

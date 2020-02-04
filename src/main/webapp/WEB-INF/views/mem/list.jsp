@@ -8,6 +8,7 @@
 <title>회원정보 페이지</title>
 </head>
 <body>
+<img src="/media/Screenshot_306.png"/>
 <table border="/">
 <tr>
 <th>username</th>
@@ -32,6 +33,7 @@
 <br/>
 
 <a href="mem/join">회원가입하러가기</a>
+<a href="home">홈화면으로 이동</a>
 
 
 
@@ -41,8 +43,6 @@
 	function mem_update(mem_id){
 		location.href='/mem/'+mem_id;
 	}
-
-
 
 </script>
 
